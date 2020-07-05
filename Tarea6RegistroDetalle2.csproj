@@ -74,7 +74,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="DATA\OrdenSuplidor.db">
+    <Folder Include="DATA\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DATA\Orden.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

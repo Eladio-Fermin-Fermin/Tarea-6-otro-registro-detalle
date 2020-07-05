@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tarea6RegistroDetalle2.UI.Registro;
 
 namespace Tarea6RegistroDetalle2
 {
@@ -23,6 +24,12 @@ namespace Tarea6RegistroDetalle2
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rOrdenes Ordenes = new rOrdenes();
+            Ordenes.Show();
         }
     }
 }

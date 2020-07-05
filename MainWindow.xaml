@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tarea6RegistroDetalle2"
         mc:Ignorable="d"
-        Title="Loggin" Height="450" Width="800">
+        Title="Menu Inicio" Height="300" Width="400">
     <Grid>
 
+        <Menu>
+            <MenuItem Header="Registro" Click="MenuItem_Click">
+                <MenuItem Header="Ordenes" Click="MenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        
     </Grid>
 </Window>

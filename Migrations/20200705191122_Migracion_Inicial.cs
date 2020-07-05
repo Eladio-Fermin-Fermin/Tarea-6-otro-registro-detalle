@@ -50,72 +50,99 @@ namespace Tarea6RegistroDetalle2.Migrations
                     table.PrimaryKey("PK_Suplidores", x => x.SuplidorId);
                 });
 
-            migrationBuilder.InsertData(
-                table: "Productos",
-                columns: new[] { "ProductoId", "Costo", "Descripcion", "Inventario" },
-                values: new object[] { 1, 1500.5, "Es un producto 1", 10 });
+            migrationBuilder.CreateTable(
+                name: "OrdenesDetalles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    OrdenId = table.Column<int>(nullable: false),
+                    Cantidad = table.Column<int>(nullable: false),
+                    Costo = table.Column<double>(nullable: false),
+                    IdProducto = table.Column<int>(nullable: false),
+                    Total = table.Column<double>(nullable: false),
+                    Descripcion = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrdenesDetalles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_OrdenesDetalles_Ordenes_OrdenId",
+                        column: x => x.OrdenId,
+                        principalTable: "Ordenes",
+                        principalColumn: "OrdenId",
+                        onDelete: ReferentialAction.Cascade);
+                });
 
             migrationBuilder.InsertData(
                 table: "Productos",
                 columns: new[] { "ProductoId", "Costo", "Descripcion", "Inventario" },
-                values: new object[] { 2, 5000.0, "Es un producto 2", 10 });
+                values: new object[] { 1, 100.0, "Leche en polvo", 10 });
 
             migrationBuilder.InsertData(
                 table: "Productos",
                 columns: new[] { "ProductoId", "Costo", "Descripcion", "Inventario" },
-                values: new object[] { 3, 3000.0, "Es un producto 3", 10 });
+                values: new object[] { 2, 350.0, "Leche en polvo 2", 10 });
 
             migrationBuilder.InsertData(
                 table: "Productos",
                 columns: new[] { "ProductoId", "Costo", "Descripcion", "Inventario" },
-                values: new object[] { 4, 120.0, "Es un producto 4", 10 });
+                values: new object[] { 3, 100000.0, "Leche en polvo 3", 10 });
 
             migrationBuilder.InsertData(
                 table: "Productos",
                 columns: new[] { "ProductoId", "Costo", "Descripcion", "Inventario" },
-                values: new object[] { 5, 4560.0, "Es un producto 5", 10 });
+                values: new object[] { 4, 120000.0, "I7-7700K", 10 });
 
             migrationBuilder.InsertData(
                 table: "Productos",
                 columns: new[] { "ProductoId", "Costo", "Descripcion", "Inventario" },
-                values: new object[] { 6, 2000.0, "Es un producto 6", 10 });
-
-            migrationBuilder.InsertData(
-                table: "Productos",
-                columns: new[] { "ProductoId", "Costo", "Descripcion", "Inventario" },
-                values: new object[] { 7, 1000.0, "Es un producto 7", 10 });
+                values: new object[] { 5, 45000000.0, "La Prima ", 10 });
 
             migrationBuilder.InsertData(
                 table: "Suplidores",
                 columns: new[] { "SuplidorId", "Nombres" },
-                values: new object[] { 1, "Victor" });
+                values: new object[] { 1, "Eladio" });
 
             migrationBuilder.InsertData(
                 table: "Suplidores",
                 columns: new[] { "SuplidorId", "Nombres" },
-                values: new object[] { 2, "Johan" });
+                values: new object[] { 2, "Daniel" });
 
             migrationBuilder.InsertData(
                 table: "Suplidores",
                 columns: new[] { "SuplidorId", "Nombres" },
-                values: new object[] { 3, "Palma" });
+                values: new object[] { 3, "Jesus" });
 
             migrationBuilder.InsertData(
                 table: "Suplidores",
                 columns: new[] { "SuplidorId", "Nombres" },
-                values: new object[] { 4, "Rodríguez" });
+                values: new object[] { 4, "Juan" });
+
+            migrationBuilder.InsertData(
+                table: "Suplidores",
+                columns: new[] { "SuplidorId", "Nombres" },
+                values: new object[] { 5, "Pedro" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrdenesDetalles_OrdenId",
+                table: "OrdenesDetalles",
+                column: "OrdenId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Ordenes");
+                name: "OrdenesDetalles");
 
             migrationBuilder.DropTable(
                 name: "Productos");
 
             migrationBuilder.DropTable(
                 name: "Suplidores");
+
+            migrationBuilder.DropTable(
+                name: "Ordenes");
         }
     }
 }
