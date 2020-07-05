@@ -8,9 +8,8 @@ using Tarea6RegistroDetalle2.Entidades;
 
 namespace Tarea6RegistroDetalle2.BLL
 {
-    public class ProductosBLL
+    public class SuplidorBLL
     {
-
         //Metodo Existe.
         public static bool Existe(int id)
         {
@@ -19,31 +18,7 @@ namespace Tarea6RegistroDetalle2.BLL
 
             try
             {
-                paso = contexto.Productos.Any(s => s.ProductoId == id);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-
-            return paso;
-        }
-
-        //Metodo Insertar.
-        private static bool Insertar(Productos producto)
-        {
-            Contexto contexto = new Contexto();
-            bool paso = false;
-
-            try
-            {
-                contexto.Productos.Add(producto);
-                paso = contexto.SaveChanges() > 0;
+                paso = contexto.Suplidores.Any(s => s.SuplidorId == id);
             }
             catch (Exception)
             {
@@ -59,14 +34,38 @@ namespace Tarea6RegistroDetalle2.BLL
         }
 
         //Metodo Modificar.
-        private static bool Modificar(Productos producto)
+        private static bool Modificar(Suplidores suplidor)
         {
             Contexto contexto = new Contexto();
             bool paso = false;
 
             try
             {
-                contexto.Entry(producto).State = EntityState.Modified;
+                contexto.Entry(suplidor).State = EntityState.Modified;
+                paso = contexto.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return paso;
+        }
+
+        //Metodo Insertar.
+        private static bool Insertar(Suplidores suplidores)
+        {
+            Contexto contexto = new Contexto();
+            bool paso = false;
+
+            try
+            {
+                contexto.Suplidores.Add(suplidores);
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -83,35 +82,12 @@ namespace Tarea6RegistroDetalle2.BLL
         }
 
         //Metodo Guardar.
-        public static bool Guardar(Productos producto)
+        public static bool Guardar(Suplidores suplidores)
         {
-            if (!Existe(producto.ProductoId))
-                return Insertar(producto);
+            if (!Existe(suplidores.SuplidorId))
+                return Insertar(suplidores);
             else
-                return Modificar(producto);
-        }
-
-        //Metodo Buscar.
-        public static Productos Buscar(int id)
-        {
-            Contexto contexto = new Contexto();
-            Productos productos;
-
-            try
-            {
-                productos = contexto.Productos.Find(id);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-
-            return productos;
+                return Modificar(suplidores);
         }
 
         //Metodo Eliminar.
@@ -122,8 +98,8 @@ namespace Tarea6RegistroDetalle2.BLL
 
             try
             {
-                var producto = contexto.Productos.Find(id);
-                contexto.Productos.Remove(producto);
+                var orden = contexto.Suplidores.Find(id);
+                contexto.Suplidores.Remove(orden);
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -139,15 +115,15 @@ namespace Tarea6RegistroDetalle2.BLL
             return paso;
         }
 
-        //Metodo List.
-        public static List<Productos> GetProductos()
+        //Metodo Buscar.
+        public static Suplidores Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            List<Productos> productos = new List<Productos>();
+            Suplidores suplidores;
 
             try
             {
-                productos = contexto.Productos.ToList();
+                suplidores = contexto.Suplidores.Find(id);
             }
             catch (Exception)
             {
@@ -159,7 +135,30 @@ namespace Tarea6RegistroDetalle2.BLL
                 contexto.Dispose();
             }
 
-            return productos;
+            return suplidores;
         }
+
+        public static List<Suplidores> GetSuplidores()
+        {
+            Contexto contexto = new Contexto();
+            List<Suplidores> suplidores = new List<Suplidores>();
+
+            try
+            {
+                suplidores = contexto.Suplidores.ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return suplidores;
+        }
+
     }
 }
