@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tarea6RegistroDetalle2.UI.Registro"
         mc:Ignorable="d"
-        Title="Ordenes" Height="450" Width="800">
+        Title="Ordenes" Height="430" Width="723">
     <Grid>
 
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
@@ -40,7 +40,7 @@
             <Label Content="Monto" FontSize="11"/>
             <TextBox Name="MontoTextBox" Width="695" Height="20" IsReadOnly="True" Margin="5,0" Text="{Binding Monto}" HorizontalAlignment="Left"/>
 
-            <GroupBox Header="Orden Detalle" Width="697" BorderBrush="#FF414649" HorizontalAlignment="Left" Margin="5,10,5,0">
+            <GroupBox Header="Orden Detalles" Width="697" BorderBrush="#FF414649" HorizontalAlignment="Left" Margin="5,10,5,0">
 
                 <StackPanel Orientation="Vertical">
 
@@ -112,9 +112,10 @@
                     </StackPanel>
                 </Button>
 
+                <!--Boton Eliminar-->
                 <Button Name="EliminarButton" Width="67" Height="20" Margin="5,0,0,0" Click="EliminarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Resources/delete.png" />
+                        <Image Source="/Resources/Eliminar2.png" />
                         <Label Content="Eliminar" Padding="-1" Margin="4,0"/>
                     </StackPanel>
                 </Button>
