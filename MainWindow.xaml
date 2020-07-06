@@ -8,13 +8,12 @@
         Title="Menu Inicio" Height="300" Width="400">
     <Grid>
 
-        
+
         <Menu>
             <MenuItem Header="Registro" Click="MenuItem_Click">
                 <MenuItem Header="Ordenes" Click="MenuItem_Click"/>
             </MenuItem>
         </Menu>
-        
-        
+
     </Grid>
 </Window>
