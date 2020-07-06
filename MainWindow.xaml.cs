@@ -26,6 +26,7 @@ namespace Tarea6RegistroDetalle2
             InitializeComponent();
         }
 
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             rOrdenes Ordenes = new rOrdenes();
