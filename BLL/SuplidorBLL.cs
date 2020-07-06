@@ -137,7 +137,6 @@ namespace Tarea6RegistroDetalle2.BLL
 
             return suplidores;
         }
-
         public static List<Suplidores> GetSuplidores()
         {
             Contexto contexto = new Contexto();

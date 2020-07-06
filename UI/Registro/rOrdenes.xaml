@@ -69,6 +69,7 @@
                             </StackPanel>
                         </Button>
 
+                        
                         <!--Boton Remover-->
                         <Button Name="RemoverButton" Width="72" Height="20" Margin="5,0" Click="RemoverButton_Click">
                             <StackPanel Orientation="Horizontal">

@@ -10,7 +10,6 @@ namespace Tarea6RegistroDetalle2.BLL
 {
     public class ProductosBLL
     {
-
         //Metodo Existe.
         public static bool Existe(int id)
         {

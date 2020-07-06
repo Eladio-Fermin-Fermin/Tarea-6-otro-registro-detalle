@@ -10,7 +10,6 @@ namespace Tarea6RegistroDetalle2.BLL
 {
     public class OrdenesBLL
     {
-
         //Metodo Existe.
         public static bool Existe(int id)
         {
@@ -33,7 +32,6 @@ namespace Tarea6RegistroDetalle2.BLL
 
             return paso;
         }
-
 
         //Metodo Insertar.
         private static bool Insertar(Ordenes ordenes)
